@@ -1,0 +1,28 @@
+{
+    "name": "movie-recommendation-backend",
+    "version": "1.0.0",
+    "description": "Fastify backend for AI-powered movie recommendations",
+    "main": "src/server.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "node --watch src/server.js"
+    },
+    "keywords": [
+        "fastify",
+        "openai",
+        "sqlite",
+        "movies"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@fastify/cors": "^8.5.0",
+        "@google/generative-ai": "^0.24.1",
+        "dotenv": "^16.3.1",
+        "fastify": "^4.25.2",
+        "node-fetch": "^3.3.2",
+        "openai": "^4.24.1",
+        "sql.js": "^1.13.0"
+    }
+}
