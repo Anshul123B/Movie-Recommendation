@@ -12,20 +12,15 @@ export async function createRecommendation(request, reply) {
             });
         }
 
-        // Generate recommendations using OpenAI
         const movies = await generateMovieRecommendations(userInput);
-
-        // Store in database
+        
         getDb().run(
             'INSERT INTO recommendations (user_input, movies) VALUES (?, ?)',
             [userInput, JSON.stringify(movies)]
         );
-
-        // Get the last inserted ID
+        
         const result = getDb().exec('SELECT last_insert_rowid() as id');
         const id = result[0].values[0][0];
-
-        // Save database to file
         saveDatabase();
 
         return reply.code(201).send({
@@ -125,16 +120,13 @@ export async function updateRecommendation(request, reply) {
             });
         }
 
-        // Generate new recommendations
         const movies = await generateMovieRecommendations(userInput);
 
-        // Update in database
         getDb().run(
             'UPDATE recommendations SET user_input = ?, movies = ?, timestamp = CURRENT_TIMESTAMP WHERE id = ?',
             [userInput, JSON.stringify(movies), parseInt(id)]
         );
-
-        // Check if any rows were affected
+        
         const result = getDb().exec('SELECT changes() as changes');
         const changes = result[0].values[0][0];
 
@@ -144,7 +136,6 @@ export async function updateRecommendation(request, reply) {
             });
         }
 
-        // Save database to file
         saveDatabase();
 
         return reply.send({
@@ -167,17 +158,14 @@ export async function deleteRecommendation(request, reply) {
 
         getDb().run('DELETE FROM recommendations WHERE id = ?', [parseInt(id)]);
 
-        // Check if any rows were affected
         const result = getDb().exec('SELECT changes() as changes');
         const changes = result[0].values[0][0];
-
         if (changes === 0) {
             return reply.code(404).send({
                 error: 'Recommendation not found'
             });
         }
 
-        // Save database to file
         saveDatabase();
 
         return reply.code(204).send();

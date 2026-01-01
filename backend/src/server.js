@@ -10,23 +10,18 @@ const fastify = Fastify({
     logger: true
 });
 
-// Register CORS
 await fastify.register(cors, {
     origin: true // Allow all origins in development
 });
 
-// Register routes
 await fastify.register(recommendationRoutes);
 
-// Health check route
 fastify.get('/health', async (request, reply) => {
     return { status: 'ok', timestamp: new Date().toISOString() };
 });
 
-// Start server
 const start = async () => {
     try {
-        // Initialize database first
         console.log('Initializing database...');
         await initDatabase();
         console.log('✅ Database initialized');
