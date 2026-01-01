@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--gradient-primary);
+    background: var(--color-primary);
     opacity: 0;
     transition: opacity var(--transition-base);
 }
@@ -47,10 +47,9 @@
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 800;
-    background: var(--gradient-primary);
+    background: var(--color-primary);
     border-radius: var(--radius-md);
     color: white;
-    box-shadow: var(--shadow-md);
 }
 
 .movie-title-section {
@@ -97,7 +96,7 @@
     display: flex;
     gap: var(--spacing-md);
     padding: var(--spacing-md);
-    background: rgba(168, 85, 247, 0.1);
+    background: rgba(59, 130, 246, 0.1);
     border-left: 3px solid var(--color-primary);
     border-radius: var(--radius-sm);
 }

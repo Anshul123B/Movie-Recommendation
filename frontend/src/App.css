@@ -6,33 +6,11 @@
 }
 
 .background-gradient {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(ellipse at top,
-            rgba(168, 85, 247, 0.15) 0%,
-            transparent 50%),
-        radial-gradient(ellipse at bottom right,
-            rgba(59, 130, 246, 0.15) 0%,
-            transparent 50%);
-    pointer-events: none;
-    z-index: -2;
+    display: none;
 }
 
 .background-pattern {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: -1;
+    display: none;
 }
 
 .app-header {
@@ -51,7 +29,6 @@
 
 .logo-icon {
     font-size: 3.5rem;
-    filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.4));
     animation: float 3s ease-in-out infinite;
 }
 
