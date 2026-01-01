@@ -33,4 +33,4 @@ Local setup (Windows)
 	- Ensure Node.js (>=14) and npm are installed.
 	- Verify `OPENAI_API_KEY` is set correctly in `backend/.env`.
 
-That's all — the repository contains only these local setup instructions.
+That's all, the repository contains only these local setup instructions.
